@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "CustomerManagement"
+    }
+  },
+  "defaultProject": "CustomerManagement",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CustomerManagement';
+  name = "Susmitha";
+  street = "Konduri vari Street";
+  city = "RJY";
+  region = "North";
+  hideAddress = true;
+
+  toggle() {
+    this.hideAddress = !this.hideAddress;
+  }
+
+  setRegion(val) {
+    this.region = val;
+  }
 }
