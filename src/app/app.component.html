@@ -1,15 +1,25 @@
-<h1>{{name}}</h1>
-<button (click)=toggle()>Display Address</button>
+<h1>{{name}}</h1><br/>
+<p>{{name}} lives at {{street}} in {{city}} {{region}}</p><br/>
+<fieldset>
+  <label>Name:</label><br/>
+  <input [(ngModel)]="name"><br/>
+</fieldset>
+<label><input type="checkbox" [(ngModel)]="hideAddress">Hide Address</label>
 <div [hidden]="hideAddress">
-  <fieldset><label>Street: {{street}}</label></fieldset>
-  <fieldset><label>City: {{city}}</label></fieldset>
   <fieldset>
-    <select (change)="setRegion($event.target.value)">
+    <label>Street:</label><br/>
+    <input [(ngModel)]="street"><br/>
+  </fieldset>
+  <fieldset>
+    <label>City:</label><br/>
+    <input [(ngModel)]="city"><br/>
+  </fieldset>
+  <fieldset>
+    <select [(ngModel)]="region">
       <option>North</option>
       <option>South</option>
       <option>East</option>
       <option>West</option>
     </select>
   </fieldset>
-  <p>{{name}} lives at {{street}} in {{city}} {{region}}</p>
 </div> 

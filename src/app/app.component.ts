@@ -11,12 +11,4 @@ export class AppComponent {
   city = "RJY";
   region = "North";
   hideAddress = true;
-
-  toggle() {
-    this.hideAddress = !this.hideAddress;
-  }
-
-  setRegion(val) {
-    this.region = val;
-  }
 }
