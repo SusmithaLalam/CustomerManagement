@@ -1,25 +1,41 @@
-<h1>{{name}}</h1><br/>
-<p>{{name}} lives at {{street}} in {{city}} {{region}}</p><br/>
-<fieldset>
-  <label>Name:</label><br/>
-  <input [(ngModel)]="name"><br/>
-</fieldset>
-<label><input type="checkbox" [(ngModel)]="hideAddress">Hide Address</label>
-<div [hidden]="hideAddress">
-  <fieldset>
-    <label>Street:</label><br/>
-    <input [(ngModel)]="street"><br/>
-  </fieldset>
-  <fieldset>
-    <label>City:</label><br/>
-    <input [(ngModel)]="city"><br/>
-  </fieldset>
-  <fieldset>
-    <select [(ngModel)]="region">
-      <option>North</option>
-      <option>South</option>
-      <option>East</option>
-      <option>West</option>
-    </select>
-  </fieldset>
-</div> 
+<h1>Customers</h1>
+<div>
+  <ul>
+    <li *ngFor="let cust of customers" 
+      [ngClass]="{selected: customer===cust}"
+      (click)="customer=cust">{{cust.name}}
+    </li>
+  </ul>
+  <div *ngIf="customer">
+    <h1>{{customer.name}}</h1><br/>
+    <p>{{customer.name}} lives at {{customer.address.street}} in {{customer.address.city}} in {{customer.address.state}} {{customer.address.region}}</p><br/>
+    <fieldset>
+      <label>Name:</label><br/>
+      <input [(ngModel)]="customer.name"><br/>
+    </fieldset>
+    <label><input type="checkbox" [(ngModel)]="hideAddress">Hide Address</label>
+    <div [hidden]="hideAddress">
+      <fieldset>
+        <label>Street:</label><br/>
+        <input [(ngModel)]="customer.address.street"><br/>
+      </fieldset>
+      <fieldset>
+        <label>City:</label><br/>
+        <input [(ngModel)]="customer.address.city"><br/>
+      </fieldset>
+      <fieldset>
+        <label>State:</label><br/>
+        <input [(ngModel)]="customer.address.state"><br/>
+      </fieldset>
+      <fieldset>
+        <select [(ngModel)]="customer.address.region">
+          <option *ngFor="let region of regions">{{region}}</option>
+          <!-- <option>North</option>
+          <option>South</option>
+          <option>East</option>
+          <option>West</option> -->
+        </select>
+      </fieldset>
+    </div> 
+  </div>
+</div>
